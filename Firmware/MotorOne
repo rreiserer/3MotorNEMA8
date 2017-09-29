@@ -1,0 +1,41 @@
+/*Motor 1 Pin Settings*/
+
+#define dirPin 14
+#define modePin0 16
+#define modePin1 15
+#define stepPin 8
+#define enMotor 7
+#define resetMotor 6
+#define selectMotor 5
+#define selectEncoder 9
+#define analogVref 10
+#define motorNum 1
+
+// Set Pin Modes
+pinMode(dirPin, OUTPUT);
+pinMode(modePin0, OUTPUT);
+pinMode(modePin1, OUTPUT);
+pinMode(stepPin, OUTPUT);
+pinMode(enMotor, OUTPUT);
+pinMode(resetMotor, OUTPUT);
+pinMode(selectMotorSPI, OUTPUT);
+pinMode(selectEncoderSPI, OUTPUT);
+pinMode(analogVref, OUTPUT);
+
+// SetPin Modes for Unused Pins to inputs for High-Z
+pinMode(0,INPUT);
+pinMode(1,INPUT);
+pinMode(2,INPUT);
+pinMode(3,INPUT);
+pinMode(4,INPUT);
+
+// Initialize Outputs to Default State
+digitalWrite(dirPin, LOW);
+digitalWrite(modePin0, LOW);
+digitalWrite(modePin1, LOW);
+digitalWrite(stepPin, LOW);
+digitalWrite(enMotor, LOW);
+digitalWrite(resetMotor, LOW);
+digitalWrite(selectMotorSPI, HIGH); // Deselect Stepper Driver
+digitalWrite(selectEncoderSPI, HIGH); // Deselect Encoder
+analogWrite(analogVref, 102); // Set Default Reference Voltage Anything above 2V is max current

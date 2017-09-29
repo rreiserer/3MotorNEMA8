@@ -1,0 +1,29 @@
+Proposed Command Set for Motor Controllers
+Lower case letters Ask the Parameter
+Upper case letters Tell the Parameters
+
+    Command list for Motor uCs:
+                A (0 - 35999)			Absolute Angle (uint) Initiates move to position in 0.01 degree increments at I setting
+								a (0 - 35999)			Ask Absolute Angle (uint) reads angle position in 0.01 degree increments
+                R (-32,768 - 32,767)	Relative Angle (int) Initiates moves in 0.1 degree increments
+								r (-32,768 - 32,767)	Ask relative angle remaining to move (will be zero when motor has arrived at desired location)
+								V (-32,768 - 32,767)	Velocity (RPH) (int) No motion initiated (use C to run at this velocity(sets I behind the scene)
+                v (-32,768 - 32,767)	Ask for Velocity setting (RPH)
+                I (0-4,294,967,295)		Step Interval in micros (ULong) LC returns current value
+                S (0-4,294,967,295)		Steps to take (ULong) LC returns current value of decrimented variable (will be zero when all steps are taken)
+                D (0-1)					Motor Direction (bool) LC returns value
+                N (0-255)				Device Number to control - All parameters will apply to the same number until changed LC returns current device
+                M (0-255)				Set Stepping Mode (byte) LC returns current value of current device (if device is zero, will return zero)
+                C (0-255)				Run at step interval continuously (number indicates device 0 indicates All)
+                H (0-255) 				Halt all devices if zero (number indicates device)
+								L (0-4,294,967,295)		Set Logging Interval in millis (zero turns logging off)
+								P (0 - 255)				Pause a command on a device (zero pauses all)
+								G (0 - 255)				Go (resume) a command on a device (zero resumes all)
+
+    Variable Names and Uses
+        angleCurrent
+        angleRequested
+        anglePrevious
+        angleNext
+        stepValue
+        

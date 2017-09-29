@@ -1,0 +1,43 @@
+/*Motor 1 Pin Settings*/
+
+#define dirPin 7
+#define modePin0 3
+#define modePin1 4
+#define stepPin 2
+#define enMotor 5
+#define resetMotor 17
+#define selectMotor 8
+#define selectEncoder 16
+#define analogVref 10
+#define motorNum 3
+
+// Set Pin Modes
+pinMode(dirPin, OUTPUT);
+pinMode(modePin0, OUTPUT);
+pinMode(modePin1, OUTPUT);
+pinMode(stepPin, OUTPUT);
+pinMode(enMotor, OUTPUT);
+pinMode(resetMotor, OUTPUT);
+pinMode(selectMotorSPI, OUTPUT);
+pinMode(selectEncoderSPI, OUTPUT);
+pinMode(analogVref, OUTPUT);
+
+// SetPin Modes for Unused Pins to inputs for High-Z
+pinMode(0,INPUT);
+pinMode(1,INPUT);
+pinMode(6,INPUT);
+pinMode(9,INPUT);
+
+// Initialize Outputs to Default State
+digitalWrite(dirPin, LOW);
+digitalWrite(modePin0, LOW);
+digitalWrite(modePin1, LOW);
+digitalWrite(stepPin, LOW);
+digitalWrite(enMotor, LOW);
+digitalWrite(resetMotor, LOW);
+digitalWrite(selectMotorSPI, HIGH);
+digitalWrite(selectEncoderSPI, HIGH);
+analogWrite(analogVref, 102);
+
+// I2C Motor Specific Initialization
+Wire.begin(3); // Motor Three I2C Address

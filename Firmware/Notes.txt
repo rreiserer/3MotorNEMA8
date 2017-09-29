@@ -1,0 +1,40 @@
+Bootloader on Motor uCs should be the same as Arduin Uno R3
+Program on Motor uC should be Custom Program with numbered motor includes
+Bootloader on Manager uC should be customized to program multiple uCs
+Program on Manager uC should be custom translator from Ampere to new Control Codes
+Program on Manager uC should be able to perform these tasks:
+    Read and Write data to the SD Cards
+    Read data from serial and write it to the SD Cards
+    Read files on SD and write them to the serial port to program the Motor uC
+    Take commands from Ampere and translate them into commands for the Motor uC
+
+    Motor uC Start up proceedure:
+        check encoder position
+        check motor driver by moving the motor and verify movement with encoder
+        set ready bit if movement is normal
+        Send Status to Manager uC through I2C
+        wait for command
+        when a command is received run it
+        return values where necessary
+
+    Manager uC
+        Wait for commands from Serial, I2C, or SPI
+        Ask Wifi uC if there is a connection
+        Serial Commands from Ampere
+        Serial Commands from WiFi
+        Serial Commands from Motor uCs
+        I2C commands from Motor uCs
+        SPI Commands would be from an External interface only (no local uCs are connected to this SPI)
+
+    WiFi
+        Setup wireless as an access point and station
+        Log into the Lab WiFi
+        Set up Serial as WiFi pass through
+        Check to see if other instruments log into WiFi (TEER and uCA)
+
+PinMapping for Comm Controller
+
+    Reset Lines:
+      M1 - PB7
+      M2 - PB4
+      M3 - PE6

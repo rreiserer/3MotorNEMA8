@@ -1,0 +1,7 @@
+Controller behaviors
+On Power Up
+32U4 should boot to it's sketch that will monitor the RX for data from the radio
+8As should boot like a normal Arduino UNO R3 SMD waiting 8 seconds for programming
+and then running their sketch which will act as an I2C slave for commands to run the motors
+either at a constant rate or to a specific angle. These commands can be letter codes and numbers
+that come over the I2C or over the UART.
